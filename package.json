@@ -1,0 +1,13 @@
+{
+  "name": "compare-json",
+  "version": "0.0.1",
+  "description": "Compares two or more JSON files to detect missing keys, useful for i18n language files.",
+  "main": "src/index.js",
+  "author": {
+    "name": "Nolemmings",
+    "email": "dev@nolemmings.nl"
+  },
+  "bin": {
+    "jsoncompare": "bin/watch.bin.js"
+  }
+}
