@@ -8,6 +8,20 @@
     "email": "dev@nolemmings.nl"
   },
   "bin": {
-    "jsoncompare": "bin/watch.bin.js"
+    "comparejson": "bin/compare.js"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.1.0",
+    "jasmine": "^2.3.2"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "glob": "^5.0.15",
+    "lodash": "^3.10.1",
+    "minimist": "^1.2.0"
   }
 }
