@@ -1,8 +1,8 @@
 {
   "name": "compare-json",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Compares two or more JSON files for missing object keys, useful for checking i18n language files.",
-  "main": "bin/compare.js",
+  "main": "lib/cli.js",
   "author": {
     "name": "Nolemmings",
     "email": "dev@nolemmings.nl"
