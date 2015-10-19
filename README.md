@@ -24,3 +24,11 @@ test/test3.json is missing the following keys:
 - a.a2.a2a
 - b
 ```
+
+## Options
+
+For options, simply run help:
+
+```
+$ comparejson --help
+```
