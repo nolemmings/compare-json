@@ -1,8 +1,8 @@
 {
   "name": "compare-json",
   "version": "0.0.1",
-  "description": "Compares two or more JSON files to detect missing keys, useful for i18n language files.",
-  "main": "src/index.js",
+  "description": "Compares two or more JSON files for missing object keys, useful for checking i18n language files.",
+  "main": "bin/compare.js",
   "author": {
     "name": "Nolemmings",
     "email": "dev@nolemmings.nl"
@@ -22,6 +22,6 @@
     "colors": "^1.1.2",
     "glob": "^5.0.15",
     "lodash": "^3.10.1",
-    "minimist": "^1.2.0"
+    "yargs": "^3.27.0"
   }
 }
