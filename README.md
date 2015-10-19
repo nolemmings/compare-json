@@ -14,16 +14,9 @@ When installed globally run the `comparejson` command from your command line:
 
 ```
 $ comparejson ./test/*.json
-
-test/test1.json is missing the following keys:
-- c
-test/test2.json is complete
-test/test3.json is missing the following keys:
-- a.a1.a1a
-- a.a1.a1b
-- a.a2.a2a
-- b
 ```
+
+![Result screenshot](/screenshot.png?raw=true)
 
 ## Options
 
