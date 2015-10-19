@@ -7,6 +7,7 @@
     "name": "Nolemmings",
     "email": "dev@nolemmings.nl"
   },
+  "repository": "https://github.com/nolemmings/compare-json.git",
   "bin": {
     "comparejson": "bin/compare.js"
   },
