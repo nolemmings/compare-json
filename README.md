@@ -16,7 +16,7 @@ When installed globally run the `comparejson` command from your command line:
 $ comparejson ./test/*.json
 ```
 
-![Result screenshot](/screenshot.png?raw=true)
+![Result screenshot](screenshot.png?raw=true)
 
 ## Options
 
