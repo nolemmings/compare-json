@@ -49,17 +49,17 @@ describe('compare', function() {
       __dirname + '/test3.json'
     ], function(err, diff) {
       if (err) return done.fail(err);
-      expect(diff[0].missingKeys).toContain('c');
+      expect(diff[0].missingPaths).toContain('c');
       expect(_.endsWith(diff[0].file, 'test1.json')).toBe(true);
       expect(_.values(diff[0].alternatives.c)).toContain('c');
 
-      expect(diff[1].missingKeys).toEqual([]);
+      expect(diff[1].missingPaths).toEqual([]);
       expect(_.endsWith(diff[1].file, 'test2.json')).toBe(true);
 
-      expect(diff[2].missingKeys).toContain('a.a1.a1a');
-      expect(diff[2].missingKeys).toContain('a.a1.a1b');
-      expect(diff[2].missingKeys).toContain('a.a2.a2a');
-      expect(diff[2].missingKeys).toContain('b');
+      expect(diff[2].missingPaths).toContain('a.a1.a1a');
+      expect(diff[2].missingPaths).toContain('a.a1.a1b');
+      expect(diff[2].missingPaths).toContain('a.a2.a2a');
+      expect(diff[2].missingPaths).toContain('b');
       expect(_.endsWith(diff[2].file, 'test3.json')).toBe(true);
       expect(_.values(diff[2].alternatives['a.a1.a1a'])).toContain('a.a1.a1a');
       expect(_.values(diff[2].alternatives['b'])).toContain('b');
