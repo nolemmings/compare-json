@@ -1,15 +1,18 @@
 'use strict';
 
 var compareJson = require('../lib/compare');
+var compareCli = require('../lib/cli');
 var _ = require('lodash');
+var glob = require('glob');
 
 describe('compare', function() {
 
   var object1 = null;
   var object2 = null;
   var object3 = null;
+  var fixtures = null;
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     object1 = {
       a: {
         a1: {
@@ -40,13 +43,18 @@ describe('compare', function() {
     object3 = {
       c: 'c'
     }
+    glob(__dirname + '/fixture/**/*.json', { nodir: true }, function(err, files) {
+      if (err) return done(err);
+      fixtures = files;
+      done(null);
+    });
   });
 
   it('should detect missing keys between objects', function(done) {
     compareJson.compareFiles([
-      __dirname + '/test1.json',
-      __dirname + '/test2.json',
-      __dirname + '/test3.json'
+      __dirname + '/fixture/group1-test1.json',
+      __dirname + '/fixture/group1-test2.json',
+      __dirname + '/fixture/group1-test3.json'
     ], function(err, diff) {
       if (err) return done.fail(err);
       expect(diff[0].missingPaths).toContain('c');
@@ -69,25 +77,19 @@ describe('compare', function() {
     });
   });
 
-  it('should load files using a glob', function(done) {
-    compareJson.compareFilesGlob('./test/*.json', function(err, res) {
-      if (err) return done.fail(err);
-      expect(res.length).toBe(3);
+  it('should group files by specified regular expression', function() {
+    var groups = compareJson.groupFilesBy(fixtures, "(.+)\-.[^\/]+.");
+    expect(groups.length).toBe(4);
+    expect(groups[0].length).toBe(3); // group1-*.json
+    expect(groups[1].length).toBe(1); // group2-subgroup-*.json
+    expect(groups[2].length).toBe(2); // group2-*.json
+    expect(groups[3].length).toBe(1); // subfolder/group1-*.json
+  });
+
+  it('should contain at least one file to compare', function(done) {
+    compareJson.compareFiles([], function(err, diff) {
+      expect(err.message).toBe('Require at least one file');
       done();
     });
   });
-
-  it('should throw an error when only one file was found', function(done) {
-    compareJson.compareFilesGlob('*.json', function(err, res) {
-      expect(err.message).toBe('Require at least two files, found only one "package.json"');
-      done();
-    });
-  });
-
-  it('should throw an error when no files were found', function(done) {
-    compareJson.compareFilesGlob('*.invalid', function(err, res) {
-      expect(err.message).toBe('Require at least two files, found none');
-      done();
-    });
-  })
 });
