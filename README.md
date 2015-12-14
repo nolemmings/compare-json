@@ -36,26 +36,26 @@ For options, you can also run help `$ comparejson --help`
     <tr>
       <td>--help</td>
       <td></td>
-      <td>Show this help.</td>
+      <td>Show help.</td>
     </tr>
     <tr>
       <td>--separator</td>
       <td>-s</td>
       <td>Separates files into different groups using a separator string. The separator string will be the last occurrence within the filepath.
-
-      For example, assume the files `user-en.json, user-nl.json, register-en.json, register-nl.json`; the following command will create two comparison groups: `comparejson -s="-" ./*.json`.</td>
+      <br /><br />
+      For example, assume the files <code>user-en.json, user-nl.json, register-en.json, register-nl.json</code>; this command creates two comparison groups: <code>comparejson -s="-" ./*.json</code>.</td>
     </tr>
     <tr>
       <td>--groupBy</td>
       <td>-g</td>
       <td>Separates files into different groups using a regex pattern. Only files within the same group are compared to one another.
-
-      For example, assume the files `user-en.json, user-nl.json, register-en.json, register-nl.json`; the following command will create two comparison groups: `comparejson -g="(.+)\-.[^\/]+.*" ./*.json`. This particular example can be achieved easier using the `--separator` option.</td>
+      <br /><br />
+      For example, assume the files <code>user-en.json, user-nl.json, register-en.json, register-nl.json</code>; this command creates two comparison groups: <code>comparejson -g="(.+)\-.[^\/]+.*" ./*.json</code>. Please not that this particular example can be achieved easier using the <code>--separator</code> option.</td>
     </tr>
     <tr>
       <td>--ignoreUngrouped</td>
       <td>-i</td>
-      <td>When using `--groupBy` or `--separator` by default all files not matching any group will be ignored. If you want to treat all files not matching any group as part of one separate group set `-i=false`.</td>
+      <td>When using <code>--groupBy</code> or <code>--separator</code> all files not matching any group will be ignored by default. To change this behaviour and group all unmatched groups in one single group use <code>-i=false</code>.</td>
     </tr>
   </tbody>
 </table>
