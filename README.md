@@ -39,6 +39,11 @@ For options, you can also run help `$ comparejson --help`
       <td>Show help.</td>
     </tr>
     <tr>
+      <td>--exit</td>
+      <td>-e</td>
+      <td>Exits the process with error code 1 when an error was found.</td>
+    </tr>
+    <tr>
       <td>--separator</td>
       <td>-s</td>
       <td>Separates files in different comparison groups using a separator string.
