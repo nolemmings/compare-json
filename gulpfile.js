@@ -11,3 +11,5 @@ gulp.task('test', function() {
       includeStackTrace: true
     }));
 });
+
+gulp.task('default', ['test'])
