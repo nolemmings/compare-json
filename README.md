@@ -41,7 +41,7 @@ For options, you can also run help `$ comparejson --help`
     <tr>
       <td>--exit</td>
       <td>-e</td>
-      <td>Exits the process with error code 1 when an error was found.</td>
+      <td>Immediatly exits the process with error code 1 when an error was found.</td>
     </tr>
     <tr>
       <td>--separator</td>
@@ -51,16 +51,21 @@ For options, you can also run help `$ comparejson --help`
       For example, assume the files <code>user-en.json, user-nl.json, register-en.json, register-nl.json</code>; to split these files in two comparison groups "user" and "register" you can run <code>comparejson -s="-" ./*.json</code>.</td>
     </tr>
     <tr>
-      <td>--groupBy</td>
+      <td>--group-by</td>
       <td>-g</td>
       <td>Separates files in different copmarison groups using a regular expression. Only files within the same group are compared to one another.
       <br /><br />
       For example, assume the files <code>user-en.json, user-nl.json, register-en.json, register-nl.json</code>; to split these files in two comparison groups "user" and "register" you can run <code>comparejson -g="(.+)\-.[^\/]+.*" ./*.json</code>. Please note that this particular example can be achieved easier using the <code>--separator</code> option.</td>
     </tr>
     <tr>
-      <td>--ignoreUngrouped</td>
+      <td>--ignore-ungrouped</td>
       <td>-i</td>
-      <td>When using <code>--groupBy</code> or <code>--separator</code> all files not matching any group will be ignored by default. To change this behaviour and group all unmatched groups in a single group use <code>-i=false</code>.</td>
+      <td>When using <code>--group-by</code> or <code>--separator</code> all files not matching any group will be ignored by default. To change this behaviour and group all unmatched groups in a single group use <code>-i=false</code>.</td>
+    </tr>
+    <tr>
+      <td>--only-errors</td>
+      <td></td>
+      <td>Only display errors in the console.</td>
     </tr>
   </tbody>
 </table>
