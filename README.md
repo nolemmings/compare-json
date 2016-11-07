@@ -41,7 +41,7 @@ For options, you can also run help `$ comparejson --help`
     <tr>
       <td>--exit</td>
       <td>-e</td>
-      <td>Immediatly exits the process with error code 1 when an error was found.</td>
+      <td>Exits the process with error code 1 when at least one error was found.</td>
     </tr>
     <tr>
       <td>--separator</td>
@@ -61,11 +61,6 @@ For options, you can also run help `$ comparejson --help`
       <td>--ignore-ungrouped</td>
       <td>-i</td>
       <td>When using <code>--group-by</code> or <code>--separator</code> all files not matching any group will be ignored by default. To change this behaviour and group all unmatched groups in a single group use <code>-i=false</code>.</td>
-    </tr>
-    <tr>
-      <td>--only-errors</td>
-      <td></td>
-      <td>Only display errors in the console.</td>
     </tr>
   </tbody>
 </table>
