@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.3.1] 2016-11-17
+### Fixed
+- `output()` not defined error when all files are correct
+
+### Removed
+- `--only-errors` option in cli commands
+
 ## [0.3.0]
 ### Fixed
 - `--exit` now prints all errors when used in combination with `--separator` or `--group-by`
