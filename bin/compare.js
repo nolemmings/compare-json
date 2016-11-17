@@ -23,11 +23,6 @@ var argv = require('yargs')
     describe: 'Exit with error code when object keys were are missing',
     type: 'boolean'
   })
-  .option('onlyErrors', {
-    describe: 'Display only errors',
-    default: false,
-    type: 'boolean'
-  })
   .check(function(args) {
     if (args.groupBy && args.separator) {
       throw new Error('Error: cannot use both --separator and --groupBy');
