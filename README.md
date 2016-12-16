@@ -53,7 +53,7 @@ For options, you can also run help `$ comparejson --help`
     <tr>
       <td>--group-by</td>
       <td>-g</td>
-      <td>Separates files in different copmarison groups using a regular expression. Only files within the same group are compared to one another.
+      <td>Separates files in different comparison groups using a regular expression. Only files within the same group are compared to one another.
       <br /><br />
       For example, assume the files <code>user-en.json, user-nl.json, register-en.json, register-nl.json</code>; to split these files in two comparison groups "user" and "register" you can run <code>comparejson -g="(.+)\-.[^\/]+.*" ./*.json</code>. Please note that this particular example can be achieved easier using the <code>--separator</code> option.</td>
     </tr>
