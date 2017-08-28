@@ -18,6 +18,11 @@ var argv = require('yargs')
     default: true,
     type: 'boolean'
   })
+  .option('extractedKeysFile', {
+    alias: 'k',
+    describe: 'Regular expression of file(s) containing keys detected in the code which should not be shown in the result.',
+    type: 'string'
+  })
   .option('exit', {
     alias: 'e',
     describe: 'Exit with error code when object keys were are missing',
