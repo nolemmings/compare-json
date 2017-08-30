@@ -18,9 +18,9 @@ var argv = require('yargs')
     default: true,
     type: 'boolean'
   })
-  .option('extractedKeysFile', {
-    alias: 'k',
-    describe: 'Regular expression of file(s) containing keys detected in the code which should not be shown in the result.',
+  .option('suppressErrors', {
+    alias: 'se',
+    describe: 'Suppresses errors for files that match the given regex. The keys found in this file will be used as part of the comparison',
     type: 'string'
   })
   .option('exit', {
