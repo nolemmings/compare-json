@@ -62,5 +62,10 @@ For options, you can also run help `$ comparejson --help`
       <td>-i</td>
       <td>When using <code>--group-by</code> or <code>--separator</code> all files not matching any group will be ignored by default. To change this behaviour and group all unmatched groups in a single group use <code>-i=false</code>.</td>
     </tr>
+    <tr>
+      <td>--extractedKeysFile</td>
+      <td>-k</td>
+      <td>This allow to provide a regexp for identifying file(s) that should be included in the comparison but for which no missing key should be identified. This can be usefull when generating a file with all translations keys detected in the code with e.g. a tool like ngx-translate-extract</td>
+    </tr>
   </tbody>
 </table>
