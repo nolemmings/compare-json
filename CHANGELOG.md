@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.3.2] 2017-08-30
+### Fixed
+- `--suppress-errors` now allows suppressing errors for files that match a given regex
+
 ## [0.3.1] 2016-11-17
 ### Fixed
 - `output()` not defined error when all files are correct
