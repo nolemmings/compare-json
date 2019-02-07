@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var argv = require('yargs')
+const argv = require('yargs')
   .usage('Usage: comparejson -e ./test/*.json')
   .option('groupBy', {
     alias: 'g',
@@ -38,6 +38,6 @@ var argv = require('yargs')
   .wrap(120)
   .argv;
 
-var cli = require('../lib/cli');
+const cli = require('../lib/cli');
 
 cli(argv._, argv);
