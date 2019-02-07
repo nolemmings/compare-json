@@ -1,16 +1,12 @@
-'use strict';
-
-var compareJson = require('../lib/compare');
-var compareCli = require('../lib/cli');
-var _ = require('lodash');
-var glob = require('glob');
+const compareJson = require('../lib/compare');
+const _ = require('lodash');
+const glob = require('glob');
 
 describe('compare', function() {
-
-  var object1 = null;
-  var object2 = null;
-  var object3 = null;
-  var fixtures = null;
+  let object1 = null;
+  let object2 = null;
+  let object3 = null;
+  let fixtures = null;
 
   beforeEach(function(done) {
     object1 = {
@@ -42,7 +38,7 @@ describe('compare', function() {
     };
     object3 = {
       c: 'c'
-    }
+    };
     glob(__dirname + '/fixture/**/*.json', { nodir: true }, function(err, files) {
       if (err) return done(err);
       fixtures = files;
@@ -51,34 +47,37 @@ describe('compare', function() {
   });
 
   it('should detect missing keys between objects', function(done) {
-    compareJson.compareFiles([
-      __dirname + '/fixture/group1-test1.json',
-      __dirname + '/fixture/group1-test2.json',
-      __dirname + '/fixture/group1-test3.json'
-    ], function(err, diff) {
-      if (err) return done.fail(err);
-      expect(diff[0].missingPaths).toContain('c');
-      expect(_.endsWith(diff[0].file, 'test1.json')).toBe(true);
-      expect(_.values(diff[0].alternatives.c)).toContain('c');
+    compareJson.compareFiles(
+      [
+        __dirname + '/fixture/group1-test1.json',
+        __dirname + '/fixture/group1-test2.json',
+        __dirname + '/fixture/group1-test3.json'
+      ],
+      function(err, diff) {
+        if (err) return done.fail(err);
+        expect(diff[0].missingPaths).toContain('c');
+        expect(_.endsWith(diff[0].file, 'test1.json')).toBe(true);
+        expect(_.values(diff[0].alternatives.c)).toContain('c');
 
-      expect(diff[1].missingPaths).toEqual([]);
-      expect(_.endsWith(diff[1].file, 'test2.json')).toBe(true);
+        expect(diff[1].missingPaths).toEqual([]);
+        expect(_.endsWith(diff[1].file, 'test2.json')).toBe(true);
 
-      expect(diff[2].missingPaths).toContain('a.a1.a1a');
-      expect(diff[2].missingPaths).toContain('a.a1.a1b');
-      expect(diff[2].missingPaths).toContain('a.a2.a2a');
-      expect(diff[2].missingPaths).toContain('b');
-      expect(_.endsWith(diff[2].file, 'test3.json')).toBe(true);
-      expect(_.values(diff[2].alternatives['a.a1.a1a'])).toContain('a.a1.a1a');
-      expect(_.values(diff[2].alternatives['b'])).toContain('b');
-      expect(_.values(diff[2].alternatives['b'])).toContain('Different value');
+        expect(diff[2].missingPaths).toContain('a.a1.a1a');
+        expect(diff[2].missingPaths).toContain('a.a1.a1b');
+        expect(diff[2].missingPaths).toContain('a.a2.a2a');
+        expect(diff[2].missingPaths).toContain('b');
+        expect(_.endsWith(diff[2].file, 'test3.json')).toBe(true);
+        expect(_.values(diff[2].alternatives['a.a1.a1a'])).toContain('a.a1.a1a');
+        expect(_.values(diff[2].alternatives['b'])).toContain('b');
+        expect(_.values(diff[2].alternatives['b'])).toContain('Different value');
 
-      done();
-    });
+        done();
+      }
+    );
   });
 
   it('should group files by specified regular expression', function() {
-    var groups = compareJson.groupFilesBy(fixtures, "(.+)\-.[^\/]+.");
+    const groups = compareJson.groupFilesBy(fixtures, '(.+)-.[^/]+.');
     expect(groups.length).toBe(4);
     expect(groups[0].length).toBe(3); // group1-*.json
     expect(groups[1].length).toBe(1); // group2-subgroup-*.json
@@ -87,7 +86,7 @@ describe('compare', function() {
   });
 
   it('should contain at least one file to compare', function(done) {
-    compareJson.compareFiles([], function(err, diff) {
+    compareJson.compareFiles([], err => {
       expect(err.message).toBe('Require at least one file');
       done();
     });
