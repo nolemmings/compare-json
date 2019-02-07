@@ -39,7 +39,7 @@ describe('compare', function() {
     object3 = {
       c: 'c'
     };
-    glob(__dirname + '/fixture/**/*.json', { nodir: true }, function(err, files) {
+    glob(__dirname + '/fixture/**/*.json', { nodir: true }, (err, files) => {
       if (err) return done(err);
       fixtures = files;
       done(null);
