@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] 2019-02-07
+### Fixed
+- Fixed #10 glob match not working on windows
+
+### Changed
+- Update code styling to ES6, may break nodejs v5 and lower
+- Remove gulp dependency
+
 ## [0.3.2] 2017-08-30
 ### Fixed
 - `--suppress-errors` now allows suppressing errors for files that match a given regex
